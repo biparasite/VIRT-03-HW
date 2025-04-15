@@ -245,7 +245,7 @@ include:
   - docker-compose.yaml
 ```
 
-![task4](https://github.com/biparasite/VIRT-03-HW/blob/main/task_5.png "task4")
+![task5](https://github.com/biparasite/VIRT-03-HW/blob/main/task_5.png "task5")
 
 После удаления compose.yaml выдет предупрежение о удалении или перемещении файла.
 Остановка
