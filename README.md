@@ -148,3 +148,12 @@ docker exec -it custom-nginx-t2 sh
 ![task3](https://github.com/biparasite/VIRT-03-HW/blob/main/task_3.2.png "task3")
 
 </details>
+
+11.
+
+```bash
+docker image rm --force custom-nginx-t2
+
+```
+
+---
