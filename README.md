@@ -69,7 +69,7 @@ docker run -d -p 8080:80  --name SAV-custom-nginx-t2 biparasite/nginx-my:latest
 docker rename SAV-custom-nginx-t2 custom-nginx-t2
 ```
 
-<details> <summary>docker_run</summary>
+<details> <summary>docker_rename</summary>
 
 ![task2](https://github.com/biparasite/VIRT-03-HW/blob/main/task_2.1.png "task2")
 
@@ -100,3 +100,51 @@ curl http://127.0.0.1:8080
 </details>
 
 ---
+
+## Задача 3
+
+1. Воспользуйтесь docker help или google, чтобы узнать как подключиться к стандартному потоку ввода/вывода/ошибок контейнера "custom-nginx-t2".
+2. Подключитесь к контейнеру и нажмите комбинацию Ctrl-C.
+3. Выполните docker ps -a и объясните своими словами почему контейнер остановился.
+4. Перезапустите контейнер
+5. Зайдите в интерактивный терминал контейнера "custom-nginx-t2" с оболочкой bash.
+6. Установите любимый текстовый редактор(vim, nano итд) с помощью apt-get.
+7. Отредактируйте файл "/etc/nginx/conf.d/default.conf", заменив порт "listen 80" на "listen 81".
+8. Запомните(!) и выполните команду nginx -s reload, а затем внутри контейнера curl http://127.0.0.1:80 ; curl http://127.0.0.1:81.
+9. Выйдите из контейнера, набрав в консоли exit или Ctrl-D.
+10. Это дополнительное, необязательное задание. Попробуйте самостоятельно исправить конфигурацию контейнера, используя доступные источники в интернете. Не изменяйте конфигурацию nginx и не удаляйте контейнер. Останавливать контейнер можно. пример источника
+11. Удалите запущенный контейнер "custom-nginx-t2", не останавливая его.(воспользуйтесь --help или google)
+
+В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
+
+### Ответ
+
+1.
+
+```bash
+docker exec -it custom-nginx-t2 sh
+```
+
+2. Не остановился :-)
+
+<details> <summary>Ctrl-C</summary>
+
+![task3](https://github.com/biparasite/VIRT-03-HW/blob/main/task_3.png "task3")
+
+</details>
+
+3. apt update && apt install mc
+
+<details> <summary>apt install</summary>
+
+![task3](https://github.com/biparasite/VIRT-03-HW/blob/main/task_3.1.png "task3")
+
+</details>
+
+4-8. Смена порта, релофд nginx, curl
+
+<details> <summary>apt install</summary>
+
+![task3](https://github.com/biparasite/VIRT-03-HW/blob/main/task_3.2.png "task3")
+
+</details>
