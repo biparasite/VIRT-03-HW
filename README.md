@@ -41,13 +41,62 @@ https://hub.docker.com/r/biparasite/nginx-my/tags
 ## Задача 2
 
 1. Запустите ваш образ custom-nginx:1.0.0 командой docker run в соответвии с требованиями:
-имя контейнера "ФИО-custom-nginx-t2"
-контейнер работает в фоне
-контейнер опубликован на порту хост системы 127.0.0.1:8080
+   имя контейнера "ФИО-custom-nginx-t2"
+   контейнер работает в фоне
+   контейнер опубликован на порту хост системы 127.0.0.1:8080
 2. Не удаляя, переименуйте контейнер в "custom-nginx-t2"
-3. Выполните команду date +"%d-%m-%Y %T.%N %Z" ; sleep 0.150 ; docker ps ; ss -tlpn | grep 127.0.0.1:8080  ; docker logs custom-nginx-t2 -n1 ; docker exec -it custom-nginx-t2 base64 /usr/share/nginx/html/index.html
-Убедитесь с помощью curl или веб браузера, что индекс-страница доступна.
+3. Выполните команду date +"%d-%m-%Y %T.%N %Z" ; sleep 0.150 ; docker ps ; ss -tlpn | grep 127.0.0.1:8080 ; docker logs custom-nginx-t2 -n1 ; docker exec -it custom-nginx-t2 base64 /usr/share/nginx/html/index.html
+   Убедитесь с помощью curl или веб браузера, что индекс-страница доступна.
 4. В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
 ### Ответ
 
+1.
+
+```bash
+docker run -d -p 8080:80  --name SAV-custom-nginx-t2 biparasite/nginx-my:latest
+```
+
+<details> <summary>docker_run</summary>
+
+![task2](https://github.com/biparasite/VIRT-03-HW/blob/main/task_2.png "task2")
+
+</details>
+
+2.
+
+```bash
+docker rename SAV-custom-nginx-t2 custom-nginx-t2
+```
+
+<details> <summary>docker_run</summary>
+
+![task2](https://github.com/biparasite/VIRT-03-HW/blob/main/task_2.1.png "task2")
+
+</details>
+
+3.
+
+```bash
+date +"%d-%m-%Y %T.%N %Z" ; sleep 0.150 ; docker ps ; lsof -i -n  -Tfqs | grep 127.0.0.1:8080 ; docker logs custom-nginx-t2 -n1 ; docker exec -it custom-nginx-t2 base64 /usr/share/nginx/html/index.html
+```
+
+<details> <summary>commad</summary>
+
+![task2](https://github.com/biparasite/VIRT-03-HW/blob/main/task_2.2.png "task2")
+
+</details>
+
+4.
+
+```bash
+curl http://127.0.0.1:8080
+```
+
+<details> <summary>curl</summary>
+
+![task2](https://github.com/biparasite/VIRT-03-HW/blob/main/task_2.3.png "task2")
+
+</details>
+
+---
